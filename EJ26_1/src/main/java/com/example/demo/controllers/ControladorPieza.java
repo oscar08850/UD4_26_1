@@ -19,54 +19,53 @@ import com.example.demo.service.PiezaServiceImpl;
 public class ControladorPieza {
 
 	@Autowired
-	PiezaServiceImpl departamentoServiceImpl;
+	PiezaServiceImpl piezaServiceImpl;
 
 	@GetMapping("/pieza")
 	public List<Pieza> listarpieza() {
-		return departamentoServiceImpl.listarPieza();
+		return piezaServiceImpl.listarPieza();
 	}
 
 	@PostMapping("/pieza")
-	public Pieza crearPieza(@RequestBody Pieza departamento) {
+	public Pieza crearPieza(@RequestBody Pieza pieza) {
 
-		return departamentoServiceImpl.crearPieza(departamento);
+		return piezaServiceImpl.crearPieza(pieza);
 
 	}
 
 	@GetMapping("/pieza/{id}")
 	public Pieza leerPieza(@PathVariable(name = "id") int id) {
 
-		Pieza departamento = new Pieza();
+		Pieza pieza = new Pieza();
 
-		departamento = departamentoServiceImpl.leerPiezaById(id);
+		pieza = piezaServiceImpl.leerPiezaById(id);
 
-		System.out.println("Pieza segun ID: " + departamento);
+		System.out.println("Pieza segun ID: " + pieza);
 
-		return departamento;
+		return pieza;
 	}
 
 	@PutMapping("/pieza/{id}")
 	public Pieza actualizarPieza(@PathVariable(name = "id") int id,
-			@RequestBody Pieza departamento) {
+			@RequestBody Pieza pieza) {
 
-		Pieza departamento_seleccionado = new Pieza();
-		Pieza departamento_actualizado = new Pieza();
+		Pieza pieza_seleccionado = new Pieza();
+		Pieza pieza_actualizado = new Pieza();
 
-		departamento_seleccionado = departamentoServiceImpl.leerPiezaById(id);
+		pieza_seleccionado = piezaServiceImpl.leerPiezaById(id);
 
-		departamento_seleccionado.setNombre(departamento.getNombre());
-		//departamento_seleccionado.setPresupuesto(departamento.getPresupuesto());
+		pieza_seleccionado.setNombre(pieza.getNombre());
 
-		departamento_actualizado = departamentoServiceImpl.actualizarPieza(departamento_seleccionado);
+		pieza_actualizado = piezaServiceImpl.actualizarPieza(pieza_seleccionado);
 
-		System.out.println("El departamento actualizado es: " + departamento_actualizado);
+		System.out.println("El pieza actualizado es: " + pieza_actualizado);
 
-		return departamento_actualizado;
+		return pieza_actualizado;
 	}
 
 	@DeleteMapping("/pieza/{id}")
 	public void borrarPieza(@PathVariable(name = "id") int id) {
-		departamentoServiceImpl.borrarPiezaById(id);
+		piezaServiceImpl.borrarPiezaById(id);
 	}
 
 }
