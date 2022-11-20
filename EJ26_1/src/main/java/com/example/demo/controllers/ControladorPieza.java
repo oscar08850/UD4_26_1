@@ -46,8 +46,7 @@ public class ControladorPieza {
 	}
 
 	@PutMapping("/pieza/{id}")
-	public Pieza actualizarPieza(@PathVariable(name = "id") int id,
-			@RequestBody Pieza pieza) {
+	public Pieza actualizarPieza(@PathVariable(name = "id") int id, @RequestBody Pieza pieza) {
 
 		Pieza pieza_seleccionado = new Pieza();
 		Pieza pieza_actualizado = new Pieza();

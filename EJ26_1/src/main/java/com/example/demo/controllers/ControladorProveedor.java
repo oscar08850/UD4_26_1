@@ -46,8 +46,7 @@ public class ControladorProveedor {
 	}
 
 	@PutMapping("/proveedor/{id}")
-	public Proveedor actualizarProveedor(@PathVariable(name = "id") int id,
-			@RequestBody Proveedor proveedor) {
+	public Proveedor actualizarProveedor(@PathVariable(name = "id") int id, @RequestBody Proveedor proveedor) {
 
 		Proveedor proveedor_seleccionado = new Proveedor();
 		Proveedor proveedor_actualizado = new Proveedor();
@@ -60,7 +59,7 @@ public class ControladorProveedor {
 
 		System.out.println("El proveedor actualizado es: " + proveedor_actualizado);
 
-		return proveedor_actualizado; 
+		return proveedor_actualizado;
 	}
 
 	@DeleteMapping("/proveedor/{id}")

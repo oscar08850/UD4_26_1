@@ -46,8 +46,7 @@ public class ControladorSuministra {
 	}
 
 	@PutMapping("/suministra/{id}")
-	public Suministra actualizarSuministra(@PathVariable(name = "id") int id,
-			@RequestBody Suministra suministra) {
+	public Suministra actualizarSuministra(@PathVariable(name = "id") int id, @RequestBody Suministra suministra) {
 
 		Suministra suministra_seleccionado = new Suministra();
 		Suministra suministra_actualizado = new Suministra();
@@ -62,7 +61,7 @@ public class ControladorSuministra {
 
 		System.out.println("El suministra actualizado es: " + suministra_actualizado);
 
-		return suministra_actualizado; 
+		return suministra_actualizado;
 	}
 
 	@DeleteMapping("/suministra/{id}")
