@@ -7,6 +7,7 @@ USE piezasYSuministros;
 DROP TABLE IF EXISTS piezas;
 DROP TABLE IF EXISTS proveedores;
 DROP TABLE IF EXISTS suministra;
+DROP TABLE IF EXISTS usuario;
 
  
 CREATE TABLE piezas (
@@ -32,6 +33,15 @@ CREATE TABLE suministra (
   FOREIGN KEY (id_proveedor) REFERENCES proveedores (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+
+CREATE TABLE usuario (
+  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  username varchar(300) NOT NULL,
+  password varchar(300) NOT NULL,
+  role varchar(100) NOT NULL DEFAULT 'user'
+)
+
+
 INSERT INTO piezas (nombre) VALUES
 	("Pieza1"),
     ("Pieza2"),
@@ -55,3 +65,5 @@ INSERT INTO suministra (codigo_pieza, id_proveedor, precio) VALUES
     (4, 4, 400),
     (5, 5, 500);
     
+
+INSERT INTO usuario (username, password, role) VALUES ('admin', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.','admin');
